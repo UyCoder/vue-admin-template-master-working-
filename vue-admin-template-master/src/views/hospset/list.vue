@@ -108,7 +108,7 @@ export default{
             confirmButtonText: 'Yes',
             cancelButtonText: 'No',
             type: 'warning'
-         }).then(() => { //确定执行then方法
+         }).then(() => { 
                 var idList = []
 
                 // all id's get from selection push into idList 
@@ -118,30 +118,27 @@ export default{
                     idList.push(id)
                 }
                 console.log(idList)
-            //调用接口
             hospset.batchRemoveHospSet(idList)
                 .then(response => {
-                    //提示
                     this.$message({
                     type: 'success',
                     message: 'Deleted!'
                     })
-                    //刷新页面
                     this.getList(1)
                 })
         })
 
         },
     // hospital set list
-        getList(page=1) { //添加当前页参数
+        getList(page=1) { 
             this.current = page
             hospset.getHospSetList(this.current,this.limit,this.searchObj)
-                .then(response => { //请求成功response是接口返回数据
-               //返回集合赋值list
+                .then(response => { 
+               //list
                this.list = response.data.records
-               //总记录数
+               //total 
                this.total = response.data.total
-            }).catch(error => {//请求失败
+            }).catch(error => {//if failed
                 console.log(error)
             })
         },
@@ -151,16 +148,16 @@ export default{
             confirmButtonText: 'Yes',
             cancelButtonText: 'No',
             type: 'warning'
-        }).then(() => { //确定执行then方法
-            //调用接口
+        }).then(() => { //
+            //use api
             hospset.deleteHospSet(id)
                 .then(response => {
-                    //提示
+                    //message
                     this.$message({
                     type: 'success',
                     message: 'Deleted!'
                     })
-                    //刷新页面
+                    //refresh page
                     this.getList(1)
                 })
         })

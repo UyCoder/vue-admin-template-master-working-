@@ -56,7 +56,7 @@ export default {
          })
       },
       //add
-      saveOrUpdate() {
+      save(){
          hospset.saveHospSet(this.hospitalSet)
             .then(response => {
                //popup
@@ -67,6 +67,26 @@ export default {
                //跳转列表页面，使用路由跳转方式实现
                this.$router.push({path:'/hospSet/list'})
             })
+      },
+            //update
+      update(){
+         hospset.updateHospSet(this.hospitalSet)
+            .then(response => {
+               //popup
+               this.$message({
+                  type: 'success',
+                  message: 'Update successfully!'
+               })
+               //跳转列表页面，使用路由跳转方式实现
+               this.$router.push({path:'/hospSet/list'})
+            })
+      },
+      saveOrUpdate() {
+        if (!this.hospitalSet.id){
+           this.save();
+        } else{
+           this.update();
+        }
       }
    }
 }
