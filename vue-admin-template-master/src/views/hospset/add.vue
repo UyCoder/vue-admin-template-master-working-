@@ -64,11 +64,10 @@ export default {
                   type: 'success',
                   message: 'Saved successfully!'
                })
-               //跳转列表页面，使用路由跳转方式实现
                this.$router.push({path:'/hospSet/list'})
             })
       },
-            //update
+      //update
       update(){
          hospset.updateHospSet(this.hospitalSet)
             .then(response => {
@@ -77,7 +76,6 @@ export default {
                   type: 'success',
                   message: 'Update successfully!'
                })
-               //跳转列表页面，使用路由跳转方式实现
                this.$router.push({path:'/hospSet/list'})
             })
       },
