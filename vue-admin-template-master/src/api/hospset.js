@@ -38,5 +38,20 @@ saveHospSet(hospitalSet){
     method: 'post',
     data: hospitalSet
 }) 
+},
+// id search hospset
+getHospSet(id){
+  return request({
+    url: `/admin/hosp/hospitalSet/getHospSet/${id}`,
+    method: 'get'
+}) 
+},
+// update hospset
+updateHospSet(hospitalSet){
+  return request({
+    url: `/admin/hosp/hospitalSet/updateHospitalSet`,
+    method: 'post',
+    data: hospitalSet
+}) 
 }
 }

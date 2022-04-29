@@ -76,7 +76,15 @@ export const constantRoutes = [
         name: 'Add Hospital Set',
         component: () => import('@/views/hospset/add'),
         meta: { title: 'Add Hospital Set', icon: 'tree' }
-      }
+      },
+      {
+        path: 'edit/:id',
+        name: 'EduTeacherEdit',
+        component: () =>import('@/views/hospset/add'),
+        meta: { title: 'Edit', noCache: true },
+        hidden: true
+        }
+        
     ]
   },
 

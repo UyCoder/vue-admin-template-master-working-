@@ -39,9 +39,22 @@ export default {
          hospitalSet:{} 
       }
    },
-   created() {
+   created() {// before page open
+      // get id
+      // get hospotal info by id
+      if(this.$route.params && this.$route.params.id){
+         const id = this.$route.params.id
+         this.getHospSet(id)
+      }
    },
    methods: {
+      // find by id
+      getHospSet(id){
+         hospset.getHospSet(id)
+         .then(response => {
+            this.hospitalSet = response.data
+         })
+      },
       //add
       saveOrUpdate() {
          hospset.saveHospSet(this.hospitalSet)

@@ -47,6 +47,11 @@
 
                 <el-button v-if="scope.row.status==0" type="danger" size="mini" 
                     icon="el-icon-delete" @click="lockHospSet(scope.row.id,1)">Unlock</el-button>
+            
+                <router-link :to="'/hospSet/edit/'+scope.row.id">
+                    <el-button type="primary" size="mini" icon="el-icon-edit"></el-button>
+                </router-link>
+
             </template>
         </el-table-column>
 
