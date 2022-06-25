@@ -90,6 +90,26 @@ export const constantRoutes = [
 
 
 
+  {
+    path: '/cmn',
+    component: Layout,
+    redirect: '/cmn/list',
+    name: 'dataManage',
+    alwaysShow:true,
+    meta: { title: 'ExamdataManageple', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'dataDict',
+        component: () => import('@/views/dict/list'),
+        meta: { title: 'dataDict', icon: 'table' }
+      }
+    ]
+  },
+
+
+
+
 
   {
     path: '/example',
