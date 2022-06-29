@@ -58,7 +58,7 @@
             <div slot="footer" class="dialog-footer">
                 <el-button @click="dialogImportVisible = false">
                     Cancel
-                </el-button>
+                </el-button> 
             </div>
         </el-dialog>
 
