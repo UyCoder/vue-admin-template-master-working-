@@ -1,5 +1,16 @@
 <template>
     <div class="app-container">
+        <div class="el-toolbar">
+            <div class="el-toolbar-body" style="justify-content: flex-start;">
+                <a href="http://localhost:8202/admin/cmn/dict/exportData" target="_blank">
+                    <el-button type="text"><i class="fa fa-plus"/> Export</el-button>
+                </a>
+           </div>
+    </div>
+
+
+
+
         <el-table
         :data="list"
         style="width: 100%"
@@ -47,6 +58,13 @@
 
         },
         methods: {
+            // export Dict data 
+            exportData(){
+                // export 
+                window.location.href="http://localhost:8202/admin/cmn/dict/exportData"
+            },
+
+
             getDictList(id){
                 dict.dictList(id)
                     .then(response =>{
