@@ -83,6 +83,12 @@ export const constantRoutes = [
         component: () =>import('@/views/hospset/add'),
         meta: { title: 'Edit', noCache: true },
         hidden: true
+        },
+        {
+          path: 'hosp/list',
+          name: 'Hospital List Table',
+          component: () => import('@/views/hosp/list'),
+          meta: { title: 'Hospital List', icon: 'table' }
         }
         
     ]
