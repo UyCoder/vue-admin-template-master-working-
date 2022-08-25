@@ -1,3 +1,7 @@
+# This is a front end project for the hospital project, The backend project link below:
+https://github.com/UyCoder/fd-ars_parent
+
+
 # vue-admin-template
 
 English | [简体中文](./README-zh.md)
