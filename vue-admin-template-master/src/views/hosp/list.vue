@@ -67,6 +67,12 @@
     <el-table-column prop="createTime" label="Create Time"/>
 
     <el-table-column label="Action" width="230" align="center">
+
+     <template slot-scope="scope">
+        <el-button v-if="scope.row.status == 1"  type="primary" size="mini" @click="updateStatus(scope.row.id, 0)">Offline</el-button>
+        <el-button v-if="scope.row.status == 0"  type="danger" size="mini" @click="updateStatus(scope.row.id, 1)">Online</el-button>
+    </template>
+
     </el-table-column>
 </el-table>
 
@@ -115,10 +121,20 @@ export default {
         //     .then(response => {
         //         this.provinceList = response.data
         // })
-        hospApi.findAllProvince()
+        hospApi.findAllProvince() 
     },
 
     methods: {
+        // update status
+        updateStatus(id, status){
+            hospApi.updateStatus(id,status)
+                .then(response =>{
+                    this.fetchData(1)
+                })
+
+        },
+
+
         // 加载banner列表数据
         fetchData(page = 1) {
             console.log('翻页。。。' + page)
