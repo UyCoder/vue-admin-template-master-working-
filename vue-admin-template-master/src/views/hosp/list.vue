@@ -69,6 +69,13 @@
     <el-table-column label="Action" width="230" align="center">
 
      <template slot-scope="scope">
+
+            <router-link :to="'/hospSet/hospital/show/'+scope.row.id">
+                <el-button type="primary" size="mini">More</el-button>
+            </router-link>
+
+
+
         <el-button v-if="scope.row.status == 1"  type="primary" size="mini" @click="updateStatus(scope.row.id, 0)">Offline</el-button>
         <el-button v-if="scope.row.status == 0"  type="danger" size="mini" @click="updateStatus(scope.row.id, 1)">Online</el-button>
     </template>
@@ -98,6 +105,7 @@
 
 <script>
 import hospApi from '@/api/hosp'
+
 export default {
     data() {
         return {
@@ -117,11 +125,11 @@ export default {
     created() {
         console.log('list created......')
         this.fetchData()
-        // hospApi.findByDictCode('Province')
-        //     .then(response => {
-        //         this.provinceList = response.data
-        // })
-        hospApi.findAllProvince() 
+        hospApi.findByDictCode('Province')
+            .then(response => {
+                this.provinceList = response.data
+        })
+        // hospApi.findAllProvince() 
     },
 
     methods: {
@@ -180,7 +188,19 @@ export default {
                 .then(response => {
                     this.cityList = response.data
                 })
-        }
+        },
+
+        cityChanged() {
+            this.cityList = []
+            this.searchObj.cityCode = null
+            this.districtList = []
+            this.searchObj.districtCode = null
+            hospApi.findChildId(this.searchObj.cityCode)
+                .then(response => {
+                    this.cityList = response.data
+                })
+        },
+
     }
 }
 </script>

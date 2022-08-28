@@ -89,7 +89,16 @@ export const constantRoutes = [
           name: 'Hospital List Table',
           component: () => import('@/views/hosp/list'),
           meta: { title: 'Hospital List', icon: 'table' }
-        }
+        },
+
+
+        {
+          path: 'hospital/show:id',
+          name: 'More',
+          component: () => import('@/views/hosp/show'),
+          meta: { title: 'More', noCache: true },
+          hidden: true
+          }
         
     ]
   },
@@ -112,9 +121,6 @@ export const constantRoutes = [
       }
     ]
   },
-
-
-
 
 
   {
